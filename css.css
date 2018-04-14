@@ -1,0 +1,16 @@
+ul {
+padding: 10px;
+border-radius: 10px;
+background-color: black;
+border-style: solid;
+border-width: 1px;
+}
+ul li {
+list-style-type: none;
+display: inline;
+margin-right: 10px;
+margin-left: 10px;
+}
+
+ul li a{
+color: white}
