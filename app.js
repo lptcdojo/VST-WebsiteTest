@@ -18,10 +18,10 @@ app.get('/', (req,res) => {
 app.get("/test", (req,res) => {
 	res.render("test.html", {name: req.query.FirstName, message: req.query.message, task: req.query.task})
 })
-/*app.get('*', function(req, res) {
+app.get('*', function(req, res) {
     res.redirect('/html/error.html');
 });
-*/
+
 const server = app.listen(PORT, () =>{
 	console.log('Server listing on', server.address());
 });
