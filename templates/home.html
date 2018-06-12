@@ -10,7 +10,11 @@
 <li><a href="/reviews/">Game Reviews</a></li>
 </ul>
 </div>
-<p>{{message}}</p>
-<form method="GET" action="/test"><input name="FirstName"><input name="task"><input name="message"><input type="submit"></form>
+{% for emoji in emojis%}
+<p><a href="http://localhost:8080/test?Name={{emoji.Title}}">{{emoji.Title}}: {{emoji.msg}}</p>
+{%else%}
+<p>There is nothing</p>
+{% endfor %}
+<form method="GET" action="/"><input name="Name"><!-- input name="task"><input name="message"><input type="submit"--></form>
 </body>
 </html>

@@ -1,6 +1,10 @@
 <html>
 <body>
-</div>
-<p>Hello {{name}}. I have been told to {{task}} and tell you to "{{message}}"</p>
+{% for data in data2%}
+<h1>{{data.Title}}</h1>
+<p>{{data.content}}</p>
+{% else %}
+<p>Error</p>
+{% endfor %}
 </body>
 </html>
