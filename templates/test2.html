@@ -10,11 +10,9 @@
 <li><a href="/reviews/">Game Reviews</a></li>
 </ul>
 </div>
-{% for data in data2%}
-<h1>{{data2[0].Title}}</h1>
-<p>{{data2[0].content|safe }}</p>
-{% else %}
-<p>Error</p>
-{% endfor %}
+
+<h1>{{data.Title}}</h1>
+<p>{{data.content|safe }}</p>
+
 </body>
 </html>

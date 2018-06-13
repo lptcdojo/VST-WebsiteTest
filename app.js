@@ -11,27 +11,28 @@ db = new Datastore({filename:path.join(__dirname, 'static/test.db'),
 autoload: true});
 
 
-const fruits = [
-{listname: 'apple', name: 'Apple', description: 'This is a Red Apple.'},
-{listname: 'banana', name: 'Banana', description: 'This is a Yellow Banana. It is not a puffy Banana. :('},
-{listname: 'pineapple', name: 'Pineapple', description: 'This is a Yellow Space Pineapple. It will take over the world and appear in Tom\'s Game.'},
-];
-
 app.use(express.static(path.join(__dirname, 'static')));
 
 nunjucks.configure('templates', {
 	autoescape: true,
 	express: app
 });
-
 app.get('/', (req,res) => {
+	res.redirect("/html/Menu.html")
+})
+
+app.get('/reviews', (req,res) => {
+	res.redirect("/html/reviews.html")
+})
+
+app.get('/news', (req,res) => {
 	request
 	.get('http://localhost:8080/api/news?name='+req.query.Name)
 	.on('data', (data) => {
 		results = JSON.parse(data)
 		console.log("Rex Sneeze")
 		console.log(data)
-		res.render("home.html", {'data': results})
+		res.render("news.html", {'data': results})
 	})	
 });
 app.get("/test", (req,res) => {

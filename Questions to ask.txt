@@ -1,0 +1,3 @@
+Insurt html code using handlebars
+
+Better way to handle long strings in a database

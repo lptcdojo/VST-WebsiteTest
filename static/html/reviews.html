@@ -1,6 +1,6 @@
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css.css">
+<link rel="stylesheet" type="text/css" href="/css.css">
 </head>
 <body>
 <div align="center">
@@ -10,11 +10,6 @@
 <li><a href="/reviews/">Game Reviews</a></li>
 </ul>
 </div>
-{% for data in data2%}
-<h1>{{data2[0].Title}}</h1>
-<p>{{data2[0].content|safe }}</p>
-{% else %}
-<p>Error</p>
-{% endfor %}
+<p>No Reviews Yet</p>
 </body>
 </html>
