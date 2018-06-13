@@ -10,8 +10,8 @@
 <li><a href="/reviews/">Game Reviews</a></li>
 </ul>
 </div>
-{% for emoji in emojis%}
-<p><a href="http://localhost:8080/test?Name={{emoji.Title}}">{{emoji.Title}}: {{emoji.msg}}</p>
+{% for item in data%}
+<p><a href="http://localhost:8080/test?Name={{item._id}}">{{item.Title}}: {{item.msg}}</a></p>
 {%else%}
 <p>There is nothing</p>
 {% endfor %}

@@ -26,18 +26,18 @@ nunjucks.configure('templates', {
 
 app.get('/', (req,res) => {
 	request
-	.get('http://localhost:8080/api/fruits?name='+req.query.Name)
+	.get('http://localhost:8080/api/news?name='+req.query.Name)
 	.on('data', (data) => {
-		emojis = JSON.parse(data)
+		results = JSON.parse(data)
 		console.log("Rex Sneeze")
 		console.log(data)
-		res.render("home.html", {'emojis': emojis})
+		res.render("home.html", {'data': results})
 	})	
 });
 app.get("/test", (req,res) => {
 	let name = req.query.Name;
 	request
-	.get('http://localhost:8080/api/fruits?name='+req.query.Name)
+	.get('http://localhost:8080/api/news?name='+req.query.Name)
 	.on('data', (data) => {
 		data2 = JSON.parse(data)
 		console.log("Rex Sneeze")
@@ -46,16 +46,18 @@ app.get("/test", (req,res) => {
 })
 });
 
-app.get('/api/fruits', (req,res) =>{
+app.get('/api/news', (req,res) =>{
 	let name = req.query.name;
 	let ffs = [];
 	db.find({}, function (err,docs) {
 		var data = docs
 		console.log(data)
-		data.forEach((fruit) => {
-			if (fruit.Title.indexOf(name) >= 0) {
-				ffs.push(fruit);
-			}			
+		data.forEach((item) => {
+			if (item._id == name) {
+				ffs.push(item);
+			} else if (item.Title.toLowerCase().indexOf(name.toLowerCase()) >= 0) {
+				ffs.push(item);
+			}
 		})
 		console.log(ffs)
 		res.status(200).json(ffs)
