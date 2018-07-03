@@ -11,7 +11,7 @@
 </ul>
 </div>
 {% for item in data%}
-<p><a href="http://localhost:8080/test?Name={{item._id}}">{{item.Title}}: {{item.msg}}</a></p>
+<p><a href="http://localhost:8080/test?Name={{item._id}}">{{item.title}}: {{item.msg}}</a></p>
 {%else%}
 <p>There is nothing</p>
 {% endfor %}
